@@ -1,0 +1,113 @@
+North Carolina::United States of America
+Dorset::United Kingdom
+Michigan::United States of America
+New Jersey::United States of America
+Arizona::United States of America
+Montana::United States of America
+Minnesota::United States of America
+Oklahoma::United States of America
+Maryland::United States of America
+California::United States of America
+the Caribbean::
+Idaho::United States of America
+Colorado::United States of America
+Oregon::United States of America
+Virginia::United States of America
+Lincolnshire::United Kingdom
+Western Australia::Australia
+Ladakh::
+Missouri::United States of America
+Piedmont::Italy
+South Dakota::United States of America
+Apulia::
+Ohio::United States of America
+Tennessee::United States of America
+Campania::Italy
+New Jersey::United States of America
+Kerala::India
+Pennsylvania::United States of America
+Xinjiang::
+North Dakota::United States of America
+Nevada::United States of America
+Jharkhand::
+Hawaii::United States of America
+Calabria::Italy
+Surrey::United Kingdom
+Cornwall::United Kingdom
+Arkansas::United States of America
+Uttar Pradesh::
+New England::United States of America
+Odisha::
+Florida::United States of America
+Orange County::United States of America
+Liguria::Italy
+Kent::United Kingdom
+Derbyshire::United Kingdom
+Kansas
+Transylvania
+Gujarat
+Tulsa, Oklahoma
+Delaware
+Kentucky
+Iowa
+Fort Worth, Texas
+Youngstown, Ohio
+the San Francisco Bay Area
+Lancashire
+Fort Defiance, Arizona
+Brittany
+Astoria, Oregon
+Alaska
+South Carolina
+Louisiana
+New Jersey
+Nebraska
+Kinmen
+Bisbee, Arizona
+Poston, Arizona
+South Australia
+Long Beach, California
+Sedona, Arizona
+Los Angeles County, California
+Apache County, Arizona
+Oxfordshire
+Ohio
+Superior, Arizona
+Kansas City, Missouri
+Los Angeles, California
+Yuma, Arizona
+Palo Alto, California
+Karnataka
+Coconino County, Arizona
+Austin, Texas
+New South Wales
+New Hampshire
+Alabama
+Mohave County, Arizona
+Bullhead City, Arizona
+Missouri
+Tennessee
+Frederick County, Maryland
+Queensland
+Prescott, Arizona
+Tampa, Florida
+Pasadena, California
+West Virginia
+Santa Barbara, California
+Oregon
+San Francisco, California
+Kwara
+New Mexico
+Palm Springs, California
+Rock Hill, South Carolina
+Nogales, Arizona
+Illinois
+Maricopa County, Arizona
+Toledo, Ohio
+Texas
+Montgomery County, Maryland
+Fresno, California
+West Bengal
+Telangana
+Charleston, South Carolina
+Mississippi

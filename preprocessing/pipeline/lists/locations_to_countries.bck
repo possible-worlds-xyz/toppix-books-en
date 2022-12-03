@@ -1,0 +1,400 @@
+London::the United Kingdom::Europe
+England::the United Kingdom::Europe
+Lisbon::Portugal::Europe
+Maine::the United States::North America
+Barcelona::Spain::Europe
+Atlanta::Georgia::Europe
+Arkansas::the United States::North America
+Missouri::the United States::North America
+Colorado::the United States::North America
+Istanbul::Turkey::Europe
+New Mexico::Mexico::North America
+Maryland::the United States::North America
+Tennessee::the United States::North America
+New York City::the United States::North America
+Louisiana::the United States::North America
+Paris::France::Europe
+Vienna::Austria::Europe
+Melbourne::Australia::Oceania
+California::the United States::North America
+Pennsylvania::the United States::North America
+hospitals::unknown::unknown
+Florida::the United States::North America
+Copenhagen::Denmark::Europe
+Ohio::the United States::North America
+Scotland::the United Kingdom::Europe
+Connecticut::the United States::North America
+Virginia::the United States::North America
+Kentucky::the United States::North America
+Las Vegas::the United States::North America
+Stockholm::Sweden::Europe
+Beijing::China::Asia
+Buenos Aires::Argentina::South America
+Montreal::Canada::North America
+Chicago::the United States::North America
+Tokyo::Japan::Asia
+Dallas::the United States::North America
+Mississippi::the United States::North America
+Sheffield::unknown::unknown
+Sydney::Australia::Oceania
+Oregon::the United States::North America
+Manchester::the United Kingdom::Europe
+Los Angeles::the United States::North America
+Hong Kong::China::Asia
+Rome::Italy::Europe
+Gothenburg::Sweden::Europe
+Illinois::the United States::North America
+Seattle::the United States::North America
+Toronto::Canada::North America
+Mumbai::India::Asia
+Minnesota::the United States::North America
+British Columbia::Canada::North America
+Texas::the United States::North America
+San Francisco::the United States::North America
+Philadelphia::unknown::unknown
+Boston::the United States::North America
+North Dakota::unknown::unknown
+Detroit::the United States::North America
+Oklahoma::the United States::North America
+Arizona::the United States::North America
+Alaska::Russia::Europe
+Madrid::Spain::Europe
+Vermont::the United States::North America
+Ontario::Canada::North America
+Idaho::the United States::North America
+Brighton::unknown::unknown
+Belfast::Ireland::Europe
+Moscow::Russia::Europe
+Budapest::Hungary::Europe
+Edinburgh::the United Kingdom::Europe
+Nevada::the United States::North America
+Kansas::the United States::North America
+Massachusetts::the United States::North America
+Berlin::Germany::Europe
+amusement parks::unknown::unknown
+Amsterdam::the Netherlands::unknown
+Cape Town::South Africa::Africa
+Iowa::the United States::North America
+Wales::the United Kingdom::Europe
+Northern Ontario::Georgia::Europe
+Lima::Peru::South America
+Wyoming::the United States::North America
+West Virginia::the United States::North America
+Saint Petersburg::Russia::Europe
+Geneva::Switzerland::Europe
+Kolkata::India::Asia
+Jerusalem::Israel::Asia
+Vancouver::Canada::North America
+New Jersey::the United States::North America
+Delhi::India::Asia
+Northern Ireland::Ireland::Europe
+Indiana::the United States::North America
+South Carolina::the United States::North America
+Baltimore::the United States::North America
+prison::Australia::Oceania
+North Carolina::the United States::North America
+Mexico City::unknown::unknown
+Glasgow::the United Kingdom::Europe
+Montana::the United States::North America
+Michigan::the United States::North America
+Milwaukee::the United States::North America
+Liverpool::the United Kingdom::Europe
+Oslo::Norway::Europe
+Florence::Italy::Europe
+Denver::the United States::North America
+New Hampshire::the United States::North America
+zoos::unknown::unknown
+Hawaii::the United States::North America
+San Diego::Mexico::North America
+Alabama::the United States::North America
+Milan::Italy::Europe
+Cairo::Egypt::Africa
+Johannesburg::South Africa::Africa
+Rhode Island::the United States::North America
+Nebraska::the United States::North America
+Hamburg::Germany::Europe
+Naples::Italy::Europe
+Warsaw::Poland::Europe
+Havana::Cuba::North America
+Wisconsin::the United States::North America
+Prague::the Czech Republic::unknown
+South Dakota::the United States::North America
+Quebec::Canada::North America
+Ottawa::Canada::North America
+Indianapolis::the United States::North America
+Brisbane::Australia::Oceania
+Lahore::Pakistan::Asia
+Bristol::the United Kingdom::Europe
+Seoul::South Korea::Asia
+Ibadan::Niger::Africa
+Manila::the Philippines::unknown
+Varanasi::India::Asia
+Seville::Spain::Europe
+heaven::unknown::unknown
+Helsinki::Finland::Europe
+psychiatric hospitals::unknown::unknown
+Lucknow::India::Asia
+Kaifeng::China::Asia
+Chongqing::China::Asia
+Porto Alegre::Brazil::South America
+Lagos::Niger::Africa
+Newcastle upon Tyne::unknown::unknown
+Utah::the United States::North America
+Beirut::Lebanon::Asia
+Delaware::the United States::North America
+Athens::Greece::Europe
+outer space::unknown::unknown
+Shanghai::China::Asia
+Patna::India::Asia
+Bangalore::India::Asia
+Marseille::France::Europe
+19th-century France::France::Europe
+19th-century Russia::Russia::Asia
+Aichi Prefecture::Japan::Asia
+Alberta::the United States::North America
+ancient Egypt::Egypt::Africa
+ancient Greece::Greece::Europe
+ancient Israel::Israel::Asia
+ancient Persia::Iran::Asia
+ancient Rome::Italy::Europe
+ancient Troy::Turkey::Africa
+Anglo-Saxon England::the United Kingdom::Europe
+Anhui::China::Asia
+Appalachia::the United States::North America
+Aquitaine::France::Europe
+Argyll and Bute::the United Kingdom::Europe
+Assam::India::Asia
+Austin, Texas::the United States::North America
+Bedfordshire::the United Kingdom::Europe
+Bengal::India::Asia
+Berkshire::the United Kingdom::Europe
+Beverly Hills, California::the United States::North America
+Bihar::India::Asia
+Birmingham, Alabama::the United States::North America
+Birmingham, West Midlands::the United Kingdom::Europe
+boarding schools::unknown::_schools
+Borneo::unknown::Asia
+Boulder, Colorado::the United States::North America
+British India::India::Asia
+Brittany::France::Europe
+Brooklyn::the United States::North America
+Buckinghamshire::the United Kingdom::Europe
+Buffalo, New York::the United States::North America
+Cambridge::the United Kingdom::Europe
+Cambridgeshire::the United Kingdom::Europe
+Cape Verde::South Africa::Africa
+Central America::unknown::South America
+Charlotte, North Carolina::the United States::North America
+Cheshire::the United Kingdom::Europe
+Cincinnati::the United States::North America
+Cleveland::the United States::North America
+Columbia, Missouri::the United States::North America
+Columbia University::the United States::North America
+Columbus, Ohio::the United States::North America
+Cornwall::the United Kingdom::Europe
+Corsica::France::Europe
+County Clare::Ireland::Europe
+County Cork::Ireland::Europe
+County Durham::the United Kingdom::Europe
+County Wexford::Ireland::Europe
+County Wicklow::Ireland::Europe
+Crete::Greece::Europe
+Cumbria::the United Kingdom::Europe
+Cupertino, California::the United States::North America
+Czechoslovakia::Czech Republic::Europe
+Dakota Territory::the United States::North America
+Derbyshire::the United Kingdom::Europe
+Devon::the United Kingdom::Europe
+Dorset::the United Kingdom::Europe
+Dublin (city)::Ireland::Europe
+Early Modern England::the United Kingdom::Europe
+Early Modern France::France::Europe
+Easter Island::Chile::Oceania
+elementary and primary schools::unknown::_schools
+Essex::the United Kingdom::Europe
+Exeter::the United Kingdom::Europe
+fictional countries::unknown::_fictional
+Fresno, California::the United States::North America
+Georgia (U.S. state)::the United States::North America
+Gibraltar::the United Kingdom::Europe
+Gloucestershire::the United Kingdom::Europe
+Greece during World War II::Greece::Europe
+Greenland::Denmark::North America
+Guangdong::China::Asia
+Guernsey::the United Kingdom::Europe
+Gujarat::India::Asia
+Gwynedd::the United Kingdom::Europe
+Hampshire::the United Kingdom::Europe
+Harvard University::the United States::North America
+Heilongjiang::China::Asia
+Henan::China::Asia
+Herefordshire::the United Kingdom::Europe
+Hertfordshire::the United Kingdom::Europe
+Highland (council area)::the United Kingdom::Europe
+high schools and secondary schools::unknown::schools
+Hubei::China::Asia
+Hunan::China::Asia
+Imperial China::China::Asia
+Inner Mongolia::China::Asia
+Jiangsu::China::Asia
+Jiangxi::China::Asia
+Kanyakumari::India::Asia
+Karnataka::India::Asia
+Kent::the United Kingdom::Europe
+Kerala::India::Asia
+Korea::unknown::Asia
+Kyoto Prefecture::Japan::Asia
+Leeds::the United Kingdom::Europe
+Leicestershire::the United Kingdom::Europe
+Liaoning::China::Asia
+Liguria::Italy::Europe
+Lincolnshire::the United Kingdom::Europe
+Łódź::Poland::Europe
+Long Island::the United States::North America
+Los Angeles|Drop::the United States::North America
+Madison, Wisconsin::the United States::North America
+Maine|Country::the United States::North America
+Manchukuo::China::Asia
+Mandatory Palestine::unknown::Asia
+Manhattan::the United States::North America
+Manitoba::Canada::North America
+Memphis, Tennessee::the United States::North America
+Memphis::the United States::North America
+Miami::the United States::North America
+Minneapolis::the United States::North America
+Mobile, Alabama::the United States::North America
+Mongol Empire::unknown::Asia
+Nagano Prefecture::Japan::Asia
+Newark, New Jersey::the United States::North America
+New England::the United States::North America
+Newfoundland and Labrador::Canada::North America
+New Orleans::the United States::North America
+New South Wales::Australia::Oceania
+New York (state)::the United States::North America
+Norfolk::the United Kingdom::Europe
+Normandy::France::Europe
+Norrbotten::Sweden::Europe
+Northamptonshire::the United Kingdom::Europe
+Northumberland::the United Kingdom::Europe
+Nottinghamshire::the United Kingdom::Europe
+Nova Scotia::Canada::North America
+Nunavut::Canada::North America
+Oakland, California::the United States::North America
+Okayama Prefecture::Japan::Asia
+Orkney::the United Kingdom::Europe
+Orlando, Florida::the United States::North America
+Oxford::the United Kingdom::Europe
+Oxfordshire::the United Kingdom::Europe
+Palm Springs, California::the United States::North America
+Phoenix, Arizona::the United States::North America
+Picardy::France::Europe
+Pittsburgh::the United States::North America
+Portland, Oregon::the United States::North America
+colonial Africa::unknown::Africa
+precolonial Africa::unknown::Africa
+Prince Edward Island::Canada::North America
+Provence::France::Europe
+Providence, Rhode Island::the United States::North America
+Puerto Rico::the United States::North America
+Queensland::Australia::Oceania
+Queens, New York::the United States::North America
+Rhodesia::Zimbabwe::Africa
+Richmond, Virginia::the United States::North America
+Rio de Janeiro (city)::Brazil::South America
+Roman Britain::the United Kingdom::Europe
+Roman Gaul::France::Europe
+Saigon::China::Asia
+Santa Monica, California::the United States::North America
+São Paulo::Brazil::South America
+Saskatchewan::Canada::North America
+Savannah, Georgia::the United States::North America
+Scania::Sweden::Europe
+Shandong::China::Asia
+Shropshire::the United Kingdom::Europe
+Siberia::Russia::Asia
+Sicily::Italy::Europe
+Småland::Sweden::Europe
+Somerset::the United Kingdom::Europe
+South Australia::Australia::Oceania
+South Ayrshire::the United Kingdom::Europe
+Staffordshire::the United Kingdom::Europe
+Staten Island::the United States::North America
+St. Louis::the United States::North America
+sub-Roman Britain::the United Kingdom::Europe
+subterranea::unknown::_underground
+Suffolk::the United Kingdom::Europe
+Surrey::the United Kingdom::Europe
+Sussex::the United Kingdom::Europe
+Tahiti::France::Oceania
+Taiwan::China::Asia
+Tamil Nadu::India::Asia
+Tangier::Morocco::Africa
+Tasmania::Australia::Oceania
+the Ancient Near East::unknown::Asia
+the Andromeda Galaxy::unknown::_space
+the Atlantic Ocean::unknown::_seas
+the Bahamas::the Bahamas::North America
+the Byzantine Empire::unknown::Asia
+the Caribbean::unknown::_seas
+the Channel Islands::the United Kingdom::Europe
+the Chola Empire::India::Asia
+the Commonwealth of Independent States::unknown::Asia
+the early national era United States::the United States::North America
+the Gulag::Russia::_prison
+the historical United States::the United States::North America
+the Indian Ocean::unknown::_seas
+the interwar period::unknown::_world
+the Isle of Man::the United Kingdom::Europe
+the Kuiper belt::unknown::_space
+the Lake District::the United Kingdom::Europe
+the Las Vegas Valley::the United States::North America
+the Loire Valley::France::Europe
+the Magellanic Clouds::unknown::_space
+the Meiji period::China::Asia
+the Middle East::unknown::Asia
+the Midwestern United States::the United States::North America
+the Northern Territory::Australia::Oceania
+the Northwest Territories::Australia::Oceania
+the Ottoman Empire::unknown::Asia
+the Outer Hebrides::the United Kingdom::Europe
+the Palestinian territories::Palestine::Asia
+the Russian Empire::Russia::Asia
+the San Francisco Bay Area::the United States::North America
+the Scottish Borders::the United Kingdom::Europe
+the Soviet Union::Russia::Asia
+the West Midlands (county)::the United Kingdom::Europe
+Tibet::China::Asia
+Trieste::Italy::Europe
+Tulsa, Oklahoma::the United States::North America
+Tuscany::Italy::Europe
+University of Cambridge::the United Kingdom::Europe
+University of Oxford::the United Kingdom::Europe
+Uttar Pradesh::India::Asia
+Värmland::Sweden::Europe
+Vatican City::Italy::Europe
+Venice::Italy::Europe
+Victoria (Australia)::Australia::Oceania
+Warwickshire::the United Kingdom::Europe
+Washington, D.C.::the United States::North America
+Washington (state)::the United States::North America
+West Bengal::India::Asia
+Western Australia::Australia::Oceania
+Whitby::the United Kingdom::Europe
+Wiltshire::the United Kingdom::Europe
+Worcestershire::the United Kingdom::Europe
+Xi'an::China::Asia
+Xinjiang::China::Asia
+Yale University::the United States::North America
+York::the United Kingdom::Europe
+Yorkshire::the United Kingdom::Europe
+Yukon::the United States::North America
+Zhejiang::China::Asia
+schools::unknown::unknown
+hotels::unknown::unknown
+Wuhan::China::Asia
+hell::unknown::unknown
+Kathmandu::Nepal::Asia
+Houston::United States::North America
+Karachi::Pakistan::Asia
+Lyon::France::Europe
+Nagoya::Japan::Asia
