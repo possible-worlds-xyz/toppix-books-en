@@ -59,9 +59,11 @@ def mk_place_list():
 def get_country(location, known_locations, states, countries, continents, wiki_api):
     locations_to_countries_file = open("./lists/locations_to_countries.txt",'a')
     country = "unknown"
+    continent = "unknown"
     if location in known_locations:
         #print("Location {0} already known: {1}.".format(location,known_locations[location]))
         country = known_locations[location][0]
+        continent = known_locations[location][1]
         known_locations[location] = (country,continent)
     elif location == None:
         country = "unknown"

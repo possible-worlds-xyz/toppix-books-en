@@ -428,8 +428,8 @@ if __name__ == "__main__":
     #mk_categories(xml_dir,cat_dir)
     mk_book_locations(xml_dir, cat_dir)
     mk_book_times(xml_dir, cat_dir)
-    #ner(xml_dir)
+    ner(xml_dir)
     
-    #book_title_file_zipped = mk_book_titles(linear_dir,linear_file_zipped)
-    #book_excerpt_file_zipped = mk_book_excerpts(linear_dir,linear_file_zipped)
-    #dependency_file_zipped, entity_file_zipped = parse_content(parsed_dir,linear_file_zipped)
+    book_title_file_zipped = mk_book_titles(linear_dir,linear_file_zipped)
+    book_excerpt_file_zipped = mk_book_excerpts(linear_dir,linear_file_zipped)
+    dependency_file_zipped, entity_file_zipped = parse_content(parsed_dir,linear_file_zipped)

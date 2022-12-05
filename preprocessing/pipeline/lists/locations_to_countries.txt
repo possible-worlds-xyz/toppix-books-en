@@ -91,7 +91,7 @@ Northern Ireland::Ireland::Europe
 Indiana::the United States::North America
 South Carolina::the United States::North America
 Baltimore::the United States::North America
-prison::Australia::Oceania
+prison::unknown::_prison
 North Carolina::the United States::North America
 Mexico City::unknown::unknown
 Glasgow::the United Kingdom::Europe
@@ -138,7 +138,7 @@ Kaifeng::China::Asia
 Chongqing::China::Asia
 Porto Alegre::Brazil::South America
 Lagos::Niger::Africa
-Newcastle upon Tyne::unknown::unknown
+Newcastle upon Tyne::United Kingdom::Europe
 Utah::the United States::North America
 Beirut::Lebanon::Asia
 Delaware::the United States::North America
@@ -399,3 +399,7 @@ Karachi::Pakistan::Asia
 Lyon::France::Europe
 Nagoya::Japan::Asia
 Nanjing::China::Asia
+Islamabad::Pakistan::Asia
+Turin::Italy::Europe
+Osaka::Japan::Asia
+Odesa::Ukraine::Europe
