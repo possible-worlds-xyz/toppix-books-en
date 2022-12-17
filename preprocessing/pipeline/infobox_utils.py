@@ -1,7 +1,12 @@
-#Adapted from https://raw.githubusercontent.com/woutster/wikipedia_infobox_parser/master/scraper.py
+# SPDX-FileCopyrightText: Aurelie Herbelot, <aurelie.herbelot@cantab.net> 
+#
+# SPDX-License-Identifier: AGPL-3.0-only
+
+
 import re
 
 def mk_regex():
+    #Adapted from https://raw.githubusercontent.com/woutster/wikipedia_infobox_parser/master/scraper.py
     box_title = None
 
     #Build a regexp to get the source artery from the artery infobox

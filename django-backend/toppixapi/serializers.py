@@ -1,7 +1,12 @@
+
+# SPDX-FileCopyrightText: Aurelie Herbelot, <aurelie.herbelot@cantab.net> 
+#
+# SPDX-License-Identifier: AGPL-3.0-only
+
 # Import serializers module from Django REST Framework
 from rest_framework import serializers
 # Import Custom model
-from .models import Book, Character, Continent, Country, Time
+from .models import Book, Topic, Character, Continent, Country, Time
 
 class ContinentSerializer(serializers.ModelSerializer):
     class Meta:
@@ -24,13 +29,19 @@ class CharacterSerializer(serializers.ModelSerializer):
         model = Character
         fields = ('id', 'name', 'age', 'age_range','gender')
 
+class TopicSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Topic
+        fields = ('id', 'topic')
+
 class BookSerializer(serializers.ModelSerializer):
+    topics = TopicSerializer(many=True)
     continents = ContinentSerializer(many=True)
     countries = CountrySerializer(many=True)
     times = TimeSerializer(many=True)
     characters = CharacterSerializer(many=True)
     class Meta:
         model = Book
-        fields = ('id', 'title', 'wiki_url','release_date','female_lead','continents','countries','times','characters','snippet')
+        fields = ('id', 'title', 'wiki_url','author', 'genre', 'release_date','topics','continents','countries','times','characters','snippet')
 
 

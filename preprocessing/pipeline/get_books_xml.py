@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: Aurelie Herbelot, <aurelie.herbelot@cantab.net> 
+#
+# SPDX-License-Identifier: AGPL-3.0-only
+
 import re
 import bz2
 import gzip

@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: Aurelie Herbelot, <aurelie.herbelot@cantab.net> 
+#
+# SPDX-License-Identifier: AGPL-3.0-only
+
+
 from pathlib import Path
 import gzip
 import re
@@ -8,7 +13,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE',
 import django
 django.setup()
 
-from toppixapi.models import Book,Continent,Country,Time,Character
+from toppixapi.models import Book,Topic,Continent,Country,Time,Character
 
 
 def read_books(base_dir):
@@ -162,7 +167,23 @@ def populate_wiki_locations():
 
 def populate_wiki_times():
     for wiki,times in wiki_to_times.items():
+        try:
+            m = Book.objects.get(title=wiki)
+        except:
+            continue
         print("Adding",wiki,times)
+        if len(times) == 0:
+            if m.release_date is not None and m.release_date.isdigit():
+                release_date = int(m.release_date)
+                i = int(release_date / 100) * 100
+                try:
+                    t = Time.objects.get(rangeStart=i)
+                    t.books.add(m)
+                    t.save()
+                except:
+                    print("Issues finding time",i,"in times.")
+            continue
+
         try:
             m = Book.objects.get(title=wiki)
             for time in times:
@@ -197,7 +218,9 @@ def populate_snippets():
     with gzip.open(os.path.join(base_dir,'linear/enwiki_book_excerpts.gz'),'rt') as f:
         for l in f:
             wiki,snippet = l.rstrip('\n').split("::")
-            snippet = snippet.replace(' ##','\n\n')+'...'
+            snippet = snippet.replace(' ##','\n\n')
+            snippet = snippet.replace(' () ',' ')
+            snippet+='...'
             print("Adding",wiki,snippet[:150])
             try:
                 m = Book.objects.get(title=wiki)
@@ -206,6 +229,90 @@ def populate_snippets():
             except:
                 continue
 
+def populate_release_dates():
+    title = ""
+    date = ""
+    with gzip.open(os.path.join(base_dir,'xml/enwiki-infoboxes.gz'),'rt') as f:
+        for l in f:
+            l = l.rstrip('\n')
+            if "<doc title" in l:
+                title = l[:-1].replace("<doc title=","")
+            elif "</doc" in l:
+                if date.isdigit():
+                    #print("Adding release date for",title,":",date)
+                    try:
+                        m = Book.objects.get(title=title)
+                        m.release_date=date
+                        m.save()
+                    except:
+                        continue
+
+            else: 
+                m = re.search('^pub_date.*:\s*(.*)',l)
+                if m:
+                    date = m.group(1)
+                m = re.search('^release_date.*:\s*(.*)',l)
+                if m:
+                    date = m.group(1)
+
+
+def populate_basic_info():
+    author = None
+    genre = None
+    with gzip.open(os.path.join(base_dir,'xml/enwiki-infoboxes.gz'),'rt') as f:
+        for l in f:
+            l = l.rstrip('\n')
+            if "<doc title" in l:
+                title = l[:-1].replace("<doc title=","")
+            elif "</doc" in l:
+                try:
+                    m = Book.objects.get(title=title)
+                    print("Adding",genre,"to title",title)
+                    if genre != None:
+                        m.genre = genre
+                    print("Adding",author,"to title",title)
+                    if author != None:
+                        m.author = author
+                    m.save()
+                except:
+                    continue
+            else:
+                m = re.search("^author : (.*)",l)
+                if m:
+                    author = m.group(1)
+                m = re.search("^genre : (.*)",l)
+                if m:
+                    genre = m.group(1)
+
+def populate_wiki_topics():
+    Topic.objects.all().delete()
+    with gzip.open(os.path.join(base_dir,'categorisation/enwiki-book-categories.gz'),'rt') as f:
+        for l in f:
+            l = l.rstrip('\n')
+            wiki, categories = l.split('::')
+            wiki = wiki.replace('_',' ')
+            for cat in categories.split(','):
+                if "Novels about" in cat or "Fiction about" in cat:
+                    m = re.search(".*about (.*)",cat)
+                    topic = m.group(1).lower().replace(' ','_')
+                    print(topic)
+                    try:
+                        print("Adding topic",topic,"to",wiki)
+                        t = Topic.objects.get_or_create(topic=topic)[0]
+                        m = Book.objects.get(title=wiki)
+                        t.books.add(m)
+                        t.save()
+                    except:
+                        continue
+
+def cleanup():
+    books = Book.objects.all()
+    print(len(books))
+    for book in books:
+        if "novel" not in book.snippet:
+            print("Deleting",book.title)
+            book.delete()
+    print(len(books))
 
 # Start execution here!
 if __name__ == '__main__':
@@ -216,11 +323,17 @@ if __name__ == '__main__':
     #print(len(books),"books read...")
     #populate_books()
     #wiki_to_continents, wiki_to_countries, continent_names, country_names = read_locations(base_dir)
+    #populate_release_dates()
     #populate_locations()
     #populate_wiki_locations()
     #populate_times()
-    wiki_to_times = read_times()
-    populate_wiki_times()
-    populate_snippets()
+    #wiki_to_times = read_times()
+    #populate_wiki_times()
+    #populate_snippets()
+    #cleanup()
+
+    #populate_basic_info()
+    populate_wiki_topics()
+    
     #wiki_chars = read_chars(base_dir)
     #populate_wiki_chars()

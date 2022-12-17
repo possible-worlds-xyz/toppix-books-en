@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: Aurelie Herbelot, <aurelie.herbelot@cantab.net> 
+#
+# SPDX-License-Identifier: AGPL-3.0-only
+
+
 import re
 import gzip
 import glob
@@ -14,7 +19,7 @@ from infobox_utils import parse
 from time_utils import extract_time
 import location_utils
 
-import spacy
+import spacy, coreferee
 import wikipediaapi
 
 def gzip_file(f):
@@ -317,8 +322,115 @@ def ner(cat_dir):
     return gzip_file(loc_file), gzip_file(time_file), gzip_file(unk_file)
 
 
+def get_chain_gender(chain):
+    gender = 'U'
+    mentions = chain.pretty_representation.lower()
+    if "he" in mentions or "his" in mentions:
+        gender = 'M'
+    if "she" in mentions or "her" in mentions:
+        gender = 'F'
+    return gender
+
+def is_person(chain, ents):
+    person = False
+    for e in chain:
+        e = e.pretty_representation
+        m = re.search('(.*)\([0-9]*\)',e)
+        if m.group(1) in ents['PERSON']:
+            person = True
+            break
+    return person
+
+def get_word_distribution(doc):
+    dist = {}
+    for token in doc:
+        if token.pos_ in ["NOUN","VERB","ADJ","PROPN"]:
+            if token.lemma_ in dist:
+                dist[token.lemma_]+=1
+            else:
+                dist[token.lemma_] = 1
+    return dist
+
 
 def parse_content(parsed_dir,linear_file_zipped):
+    nlp = spacy.load("en_core_web_sm")
+    nlp.add_pipe('coreferee')
+    print("\n--- Parsing book corpus from ",linear_file_zipped)
+
+    record = False
+    doc_content = ""
+    title = ""
+    parsed_file = join(parsed_dir,'enwiki-parsed.tmp.txt')
+    entity_file = join(parsed_dir,'enwiki-entities.tmp.txt')
+    fparse = open(parsed_file,'w')
+    fents = open(entity_file,'w')
+    content_titles_7chars = ["## Plot", "## Syno", "## Cont", "== Stor"]
+
+    with gzip.open(linear_file_zipped,'rt') as in_file:
+        for l in in_file:
+            l=l.rstrip('\n')
+            if l[:4] == "<doc":
+                fparse.write(l+'\n')
+                fents.write(l+'\n')
+            elif l[:7] in content_titles_7chars:
+                doc_content = ""
+                record = True
+            elif (l.startswith("##") or l.startswith("==")) and record:
+                record = False
+            elif l[:5] == "</doc":
+                fparse.write(doc_content+'\n')
+                doc = nlp(doc_content)
+                dist = get_word_distribution(doc)
+                male_chars = 0
+                female_chars = 0
+
+                for k,v in dist.items():
+                    fparse.write(k+':'+str(v)+'\n')
+                doc = nlp(doc_content)
+                for token in doc:
+                    fparse.write(token.text+' '+token.head.text+' '+token.dep_+'\n')
+                ents = {'PERSON':[],'LOC':[]}
+                for ent in doc.ents:
+                    if ent.text not in ents and ent.label_ in ['PERSON','LOC']:
+                        if ent.text not in ents[ent.label_]:
+                            ents[ent.label_].append(ent.text)
+
+                for lbl,names in ents.items():
+                    names = '|'.join(names)
+                    fents.write(lbl+':'+names+'\n')
+                for chain in doc._.coref_chains:
+                    if not is_person(chain, ents):
+                        continue
+                    n_mentions = len(chain)
+                    gender = get_chain_gender(chain)
+                    if gender == 'F':
+                        female_chars+=n_mentions
+                    else:
+                        male_chars+=n_mentions
+                    #Resolve mentions
+                    names = []
+                    for e in chain:
+                        resolution = doc._.coref_chains.resolve(doc[e[0]])
+                        if resolution != None:
+                            names.extend(resolution)
+                    names = list(set(names))
+                    fents.write('CHAIN '+','.join([n.text for n in names])+' '+chain.pretty_representation+' '+str(n_mentions)+' '+gender+'\n')
+                if female_chars == 0 and male_chars == 0:
+                    fents.write('FEMALE RATIO NaN\n')
+                else:
+                    fents.write('FEMALE RATIO '+str(female_chars / (female_chars + male_chars))+'\n')
+                fparse.write(l+'\n')
+                fents.write(l+'\n')
+                doc_content = ""
+            else:
+                doc_content+=l+' '
+    fparse.close()
+    fents.close()
+    print("All done. Output of parse can be found in",parsed_dir,".")
+    return gzip_file(parsed_file),gzip_file(entity_file)
+
+
+def parse_content_old(parsed_dir,linear_file_zipped):
     nlp = spacy.load("en_core_web_sm")
     print("\n--- Parsing book corpus from ",linear_file_zipped)
 
@@ -426,10 +538,11 @@ if __name__ == "__main__":
     #mk_book_infoboxes(xml_dir)
 
     #mk_categories(xml_dir,cat_dir)
-    mk_book_locations(xml_dir, cat_dir)
-    mk_book_times(xml_dir, cat_dir)
-    ner(xml_dir)
+    #mk_book_locations(xml_dir, cat_dir)
+    #mk_book_times(xml_dir, cat_dir)
+    #ner(xml_dir)
     
-    book_title_file_zipped = mk_book_titles(linear_dir,linear_file_zipped)
-    book_excerpt_file_zipped = mk_book_excerpts(linear_dir,linear_file_zipped)
+    #book_title_file_zipped = mk_book_titles(linear_dir,linear_file_zipped)
+    #book_excerpt_file_zipped = mk_book_excerpts(linear_dir,linear_file_zipped)
+    linear_file_zipped = "wikipedia/2022-12-02/books/linear/enwiki_books.gz"
     dependency_file_zipped, entity_file_zipped = parse_content(parsed_dir,linear_file_zipped)

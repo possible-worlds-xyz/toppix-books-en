@@ -48,7 +48,7 @@ Now, convert to linear format, using Wikiextractor.
 
 First, process the XML to get titles, excerpts, infoboxes, categories, locations, times, dependencies, etc.
 
-    python3 process_films.py
+    python3 process_books.py
 
 WARNING: At the moment, the function mk_movie_titles only keep movies with a description length of > 500 characters, resulting in around 36,000 movies kept from a whole list of around 140,000. This can be changed.
 
@@ -56,7 +56,10 @@ WARNING: At the moment, the function mk_movie_titles only keep movies with a des
 Second, run neuralcoref to get character information. This has to be done from a different virtualenv because neuralcoref is annoying. See relevant README.
 
 
-Third, run TMDB processing. This will take a while because we're sleeping 2s between calls to be nice to the TMDB API. Go to bed for a couple of days.
+## Manual work
 
-    python3 process_tmdb.py
+Get topical categories and cluster manually:
 
+    less <data path>/categorisation/enwiki-book-categories.gz |sed "s/.*://"|tr ',' '\n'|egrep "(Novels|Fiction) about"|sort -u|less
+
+(See current topics in ./wikipedia/2022-12-02/books/categorisation/manual_topics.txt.)
