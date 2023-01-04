@@ -35,6 +35,11 @@ class TopicSerializer(serializers.ModelSerializer):
         fields = ('id', 'topic')
 
 class BookSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Book
+        fields = ('id', 'title', 'wiki_url','author', 'genre', 'release_date','snippet')
+
+class FullBookSerializer(serializers.ModelSerializer):
     topics = TopicSerializer(many=True)
     continents = ContinentSerializer(many=True)
     countries = CountrySerializer(many=True)
@@ -43,5 +48,4 @@ class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
         fields = ('id', 'title', 'wiki_url','author', 'genre', 'release_date','topics','continents','countries','times','characters','snippet')
-
 

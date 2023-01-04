@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-only
 
 from .models import Book, Topic, Continent, Country, Time, Character
-from .serializers import BookSerializer
+from .serializers import BookSerializer, FullBookSerializer
 from rest_framework import status, viewsets
 from rest_framework.response import Response
 from rest_framework.decorators import action
@@ -18,7 +18,7 @@ class BookViewSet(viewsets.ModelViewSet):
 class GetBooksByTitle(viewsets.ViewSet):
     def list(self, request, title):
         books = Book.objects.filter(title=title)
-        serializer = BookSerializer(books,many=True)
+        serializer = FullBookSerializer(books,many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 class GetBooksByFemaleLead(viewsets.ViewSet):
