@@ -353,7 +353,7 @@ def get_word_distribution(doc):
 
 
 def parse_content(parsed_dir,linear_file_zipped):
-    nlp = spacy.load("en_core_web_sm")
+    nlp = spacy.load("en_core_web_lg")
     nlp.add_pipe('coreferee')
     print("\n--- Parsing book corpus from ",linear_file_zipped)
 
@@ -431,7 +431,7 @@ def parse_content(parsed_dir,linear_file_zipped):
 
 
 def parse_content_old(parsed_dir,linear_file_zipped):
-    nlp = spacy.load("en_core_web_sm")
+    nlp = spacy.load("en_core_web_lg")
     print("\n--- Parsing book corpus from ",linear_file_zipped)
 
     doc_content = ""
