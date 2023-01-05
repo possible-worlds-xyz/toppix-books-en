@@ -11,7 +11,7 @@ from os import mkdir, remove, unlink
 from os.path import join, exists, isdir
 
 '''Special locations'''
-special_locations = ['forest','woods','wilderness','countryside','mountain','mountains','moor','moors','glade','desert','beach','lake','sea','ocean','garden','farm','maze','castle','mansion','fortress','city','town','village','university','college','school','colony','convent','monastery','church','courtroom','tribunal','bank','factory','supermarket','office','hospital','café','restaurant','car','lorry','truck','road','train','plane','ship','battlefield','hell','paradise','purgatory','space','galaxy','spaceship']
+special_locations = ['forest','woods','wilderness','countryside','mountain','mountains','moor','moors','glade','desert','beach','lake','sea','ocean','garden','farm','maze','castle','mansion','fortress','city','town','village','university','college','school','colony','convent','monastery','church','courtroom','tribunal','bank','factory','supermarket','office','hospital','café','restaurant','battlefield','hell','paradise','purgatory','space','galaxy']
 
 '''Weather'''
 weather = ['snow','snowfall','snowstorm','rain','flood','wind','storm','fog','mist','drought','sun','sunshine']
@@ -50,7 +50,7 @@ def get_special_locations(parsed_file_zipped):
 
 
 def get_setting(ind_file):
-    setting_file = ind_file.replace('.txt','-setting.txt')
+    setting_file = ind_file.replace('individuals.txt','enwiki-settings.txt')
     sfile = open(setting_file,'w')
     title_line = ''
     setting_elements = []
@@ -96,4 +96,4 @@ if __name__ == "__main__":
     cat_dir = xml_dir.replace('xml','categorisation')
 
     #get_special_locations(join(parsed_dir,'enwiki-parsed.gz'))
-    get_setting(join(parsed_dir,'individuals.txt'))
+    get_setting(join(parsed_dir,'individuals.txt')) #From dependency parse

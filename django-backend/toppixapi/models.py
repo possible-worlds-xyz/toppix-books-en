@@ -92,3 +92,7 @@ class Topic(models.Model):
     topic = models.CharField(max_length=100, null=True, blank=False)
     books = models.ManyToManyField(Book, related_name='topics',blank=True) 
 
+class Setting(models.Model):
+    setting = models.CharField(max_length=100, null=True, blank=False)
+    books = models.ManyToManyField(Book, related_name='settings',blank=True) 
+

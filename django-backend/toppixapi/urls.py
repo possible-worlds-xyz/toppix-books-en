@@ -5,7 +5,7 @@
 
 from django.urls import path, include
 from rest_framework import routers
-from .views import BookViewSet,GetBooksByTitle,GetPaginatedBooksByContinent,GetPaginatedBooksByCountry,GetPaginatedBooksByTime,GetPaginatedBooksByAgeRange,GetPaginatedBooksByTopic,GetBooksByMultiple
+from .views import BookViewSet,GetBooksByTitle,GetPaginatedBooksByContinent,GetPaginatedBooksByCountry,GetPaginatedBooksByTime,GetPaginatedBooksByAgeRange,GetPaginatedBooksByTopic,GetPaginatedBooksBySetting,GetBooksByMultiple
 router=routers.DefaultRouter()
 router.register('books',BookViewSet)
 
@@ -16,6 +16,7 @@ urlpatterns = [
    path('books/country/<str:country>/<int:page>/', GetPaginatedBooksByCountry.as_view({'get': 'list'})),
    path('books/time/<str:time>/<int:page>/', GetPaginatedBooksByTime.as_view({'get': 'list'})),
    path('books/topic/<str:topic>/<int:page>/', GetPaginatedBooksByTopic.as_view({'get': 'list'})),
+   path('books/setting/<str:setting>/<int:page>/', GetPaginatedBooksBySetting.as_view({'get': 'list'})),
    path('books/agerange/<str:age_range>/<int:page>/', GetPaginatedBooksByAgeRange.as_view({'get': 'list'})),
    path('books/multiple/<str:topic>/<str:country>/<str:time>/', GetBooksByMultiple.as_view({'get': 'list'})),
 ]

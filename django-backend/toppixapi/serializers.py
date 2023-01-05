@@ -6,7 +6,7 @@
 # Import serializers module from Django REST Framework
 from rest_framework import serializers
 # Import Custom model
-from .models import Book, Topic, Character, Continent, Country, Time
+from .models import Book, Topic, Character, Continent, Country, Time, Setting
 
 class ContinentSerializer(serializers.ModelSerializer):
     class Meta:
@@ -34,6 +34,11 @@ class TopicSerializer(serializers.ModelSerializer):
         model = Topic
         fields = ('id', 'topic')
 
+class SettingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Setting
+        fields = ('id', 'setting')
+
 class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
@@ -41,11 +46,12 @@ class BookSerializer(serializers.ModelSerializer):
 
 class FullBookSerializer(serializers.ModelSerializer):
     topics = TopicSerializer(many=True)
+    settings = SettingSerializer(many=True)
     continents = ContinentSerializer(many=True)
     countries = CountrySerializer(many=True)
     times = TimeSerializer(many=True)
     characters = CharacterSerializer(many=True)
     class Meta:
         model = Book
-        fields = ('id', 'title', 'wiki_url','author', 'genre', 'release_date','topics','continents','countries','times','characters','snippet')
+        fields = ('id', 'title', 'wiki_url','author', 'genre', 'release_date','topics','continents','countries','times','settings','characters','snippet')
 

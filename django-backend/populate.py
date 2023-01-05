@@ -13,7 +13,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE',
 import django
 django.setup()
 
-from toppixapi.models import Book,Topic,Continent,Country,Time,Character
+from toppixapi.models import Book,Topic,Continent,Country,Time,Character,Setting
 
 
 def read_books(base_dir):
@@ -305,6 +305,36 @@ def populate_wiki_topics():
                     except:
                         continue
 
+def populate_wiki_settings():
+    Setting.objects.all().delete()
+    settings = []
+    with gzip.open(os.path.join(base_dir,'parsed/enwiki-settings.gz'),'rt') as f:
+        for l in f:
+            l = l.rstrip('\n')
+            if "<doc" in l:
+                m = re.search('title=\"([^\"]*)\"',l)
+                title = m.group(1)
+            elif "</doc" in l:
+                for setting in settings:
+                    try:
+                        print("Adding setting",setting,"to",title)
+                        t = Setting.objects.get_or_create(setting=setting)[0]
+                        m = Book.objects.get(title=title)
+                        t.books.add(m)
+                        t.save()
+                    except:
+                        continue
+                settings.clear()
+            else:
+                print(l)
+                setting,freq,min_pos = l.split('::')
+                if int(freq) == 1 and int(min_pos) < 15: #Only one occurrence of the setting but early on in the description
+                    settings.append(setting)
+                elif int(freq) > 1 and int(min_pos) < 50: #Several occurrences and still reasonably at the beginning
+                    settings.append(setting)
+                else:
+                    continue
+
 def cleanup():
     books = Book.objects.all()
     print(len(books))
@@ -333,7 +363,8 @@ if __name__ == '__main__':
     #cleanup()
 
     #populate_basic_info()
-    populate_wiki_topics()
+    #populate_wiki_topics()
+    populate_wiki_settings()
     
     #wiki_chars = read_chars(base_dir)
     #populate_wiki_chars()
