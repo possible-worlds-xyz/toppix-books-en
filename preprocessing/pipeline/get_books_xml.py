@@ -52,9 +52,8 @@ def get_book_xml(filename):
 
 if __name__ == "__main__":
     today = str(date.today())
-    #wiki_dir = join("/home/admin/share/4tera/corpora/wikipedia/",today)
-    #mkdir(wiki_dir)
-    wiki_dir = "./wikipedia/2022-12-02/books/xml/"
+    wiki_dir = join("./wikipedia/",today)
+    mkdir(wiki_dir)
     wiki_paths = read_latest_wiki_paths()
 
     for bz2_file in wiki_paths:
