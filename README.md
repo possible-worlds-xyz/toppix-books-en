@@ -18,7 +18,7 @@ This repo contains two main directories, *preprocessing* and *django-backend*. I
 
 ```
 git clone https://github.com/possible-worlds-xyz/toppix-books-en.git
-./virtualenv toppix-books-en/
+virtualenv toppix-books-en/
 cd toppix-books-en/
 source bin/activate
 pip install -r requirements.txt
