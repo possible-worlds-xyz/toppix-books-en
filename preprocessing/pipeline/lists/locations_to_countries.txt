@@ -35,7 +35,7 @@ Chicago::the United States::North America
 Tokyo::Japan::Asia
 Dallas::the United States::North America
 Mississippi::the United States::North America
-Sheffield::unknown::unknown
+Sheffield::the United Kingdom::Europe
 Sydney::Australia::Oceania
 Oregon::the United States::North America
 Manchester::the United Kingdom::Europe
@@ -51,9 +51,9 @@ Minnesota::the United States::North America
 British Columbia::Canada::North America
 Texas::the United States::North America
 San Francisco::the United States::North America
-Philadelphia::unknown::unknown
+Philadelphia::the United States::North America
 Boston::the United States::North America
-North Dakota::unknown::unknown
+North Dakota::the United States::North America
 Detroit::the United States::North America
 Oklahoma::the United States::North America
 Arizona::the United States::North America
@@ -72,7 +72,7 @@ Kansas::the United States::North America
 Massachusetts::the United States::North America
 Berlin::Germany::Europe
 amusement parks::unknown::unknown
-Amsterdam::the Netherlands::unknown
+Amsterdam::the Netherlands::Europe
 Cape Town::South Africa::Africa
 Iowa::the United States::North America
 Wales::the United Kingdom::Europe
@@ -93,7 +93,7 @@ South Carolina::the United States::North America
 Baltimore::the United States::North America
 prison::unknown::_prison
 North Carolina::the United States::North America
-Mexico City::unknown::unknown
+Mexico City::Mexico::North America
 Glasgow::the United Kingdom::Europe
 Montana::the United States::North America
 Michigan::the United States::North America
@@ -127,7 +127,7 @@ Lahore::Pakistan::Asia
 Bristol::the United Kingdom::Europe
 Seoul::South Korea::Asia
 Ibadan::Niger::Africa
-Manila::the Philippines::unknown
+Manila::the Philippines::Oceania
 Varanasi::India::Asia
 Seville::Spain::Europe
 heaven::unknown::unknown
@@ -403,3 +403,200 @@ Islamabad::Pakistan::Asia
 Turin::Italy::Europe
 Osaka::Japan::Asia
 Odesa::Ukraine::Europe
+city::unknown::unknown
+school::unknown::unknown
+New York::the United States::North America
+fortress::unknown::unknown
+supermarket::unknown::unknown
+hospital::unknown::unknown
+sea::unknown::unknown
+Zurich::Switzerland::Europe
+Chihuahua::unknown::unknown
+farm::unknown::unknown
+office::unknown::unknown
+mountains::unknown::unknown
+Abuja::Niger::Africa
+Khartoum::Sudan::Africa
+Charlotte::unknown::unknown
+Haifa::Israel::Asia
+Damascus::Syria::Asia
+Dublin::Ireland::Europe
+Veracruz::Mexico::North America
+Alexandria::Egypt::Africa
+Portland::the United States::North America
+Albuquerque::Mexico::North America
+Phoenix::the United States::North America
+Baghdad::Iraq::Asia
+Van::unknown::unknown
+Calgary::Canada::North America
+Frankfurt::Germany::Europe
+Mendoza::unknown::unknown
+Dresden::Germany::Europe
+Nairobi::Kenya::Africa
+Peshawar::Pakistan::Asia
+Antwerp::Belgium::Europe
+Natal::unknown::unknown
+Washington::United States::North America
+Santiago::Chile::South America
+Kozhikode::India::Asia
+Munich::Germany::Europe
+Gold Coast::unknown::unknown
+Birmingham::the United Kingdom::Europe
+Fukuoka::Japan::Asia
+Brussels::Belgium::Europe
+Lille::France::Europe
+Pune::India::Asia
+Tehran::Iran::Asia
+Kansas City::unknown::unknown
+Hamilton::unknown::unknown
+Mandalay::Myanmar::Asia
+Nottingham::unknown::unknown
+Georgia::United States::North America
+Santa Cruz::unknown::unknown
+Bulawayo::Zimbabwe::Africa
+Genoa::Italy::Europe
+Malaga::unknown::unknown
+Columbus::unknown::unknown
+Salem::unknown::unknown
+Celaya::Mexico::North America
+Jhansi::India::Asia
+Ipoh::Malaysia::Asia
+Pretoria::South Africa::Africa
+Goma::Rwanda::Africa
+Luzhou::China::Asia
+Oklahoma City::United States::North America
+Xiamen::China::Asia
+Padang::Indonesia::Asia
+Bogor::Indonesia::Asia
+Cancun::Mexico::North America
+Medan::Indonesia::Asia
+Jakarta::Indonesia::Asia
+Shiraz::Iran::Asia
+Austin::the United States::North America
+Kayamkulam::India::Asia
+Basel::Switzerland::Europe
+Colombo::Sri Lanka::Asia
+Dhaka::Bangladesh::Asia
+Mesa::unknown::unknown
+Cartagena::unknown::unknown
+Kharkiv::Russia::Europe
+Mombasa::Kenya::Africa
+Nyala::unknown::unknown
+Cologne::Germany::Europe
+Almaty::Kazakhstan::Europe
+Chittagong::Bangladesh::Asia
+Calabar::Niger::Africa
+Aba::unknown::unknown
+Belgrade::Serbia::Europe
+Najaf::Syria::Asia
+Mashhad::Iran::Asia
+Yazd::Iran::Asia
+Dakar::Senegal::Africa
+Karbala::Iraq::Asia
+Bari::Italy::Europe
+Nantes::France::Europe
+Bordeaux::France::Europe
+Kabul::Afghanistan::Asia
+Banjarmasin::Indonesia::Asia
+Surabaya::Indonesia::Asia
+Perth::Australia::Oceania
+Edmonton::Canada::North America
+Medina::Saudi Arabia::Asia
+Freetown::Sierra Leone::Africa
+Samara::Russia::Europe
+Maputo::Mozambique::Africa
+Umuahia::Niger::Africa
+Bangkok::Thailand::Asia
+Srinagar::India::Asia
+Chennai::India::Asia
+Amritsar::India::Asia
+Leipzig::Germany::Europe
+Sofia::Bulgaria::Europe
+Montevideo::Uruguay::South America
+Hiroshima::Japan::Asia
+Winnipeg::Canada::North America
+Bandung::Indonesia::Asia
+Herat::Afghanistan::Asia
+Manaus::Brazil::South America
+San Jose::United States::North America
+Hyderabad::India::Asia
+Adelaide::Australia::Oceania
+Catania::Italy::Europe
+Bologna::Italy::Europe
+Kiev::Ukraine::Europe
+Zinder::Niger::Africa
+Tripoli::unknown::unknown
+Sacramento::the United States::North America
+Salvador::unknown::unknown
+Vilnius::Lithuania::Europe
+San Antonio::United States::North America
+Dehradun::India::Asia
+El Paso::United States::North America
+Santa Fe::unknown::unknown
+Jos::Niger::Africa
+Omsk::Russia::Europe
+Irkutsk::Russia::Europe
+Bucharest::Romania::Europe
+Puerto Vallarta::unknown::unknown
+Tucson::United States::North America
+Southampton::unknown::unknown
+Minsk::Belarus::Europe
+Accra::Ghana::Africa
+Antipolo::the Philippines::unknown
+Leicester::unknown::unknown
+Amara::unknown::unknown
+Panama City::unknown::unknown
+Nice::France::Europe
+Dushanbe::Russia::Europe
+Maturin::unknown::unknown
+Caracas::Venezuela::South America
+Toulouse::France::Europe
+Casablanca::Morocco::Africa
+Handan::China::Asia
+Bali::Indonesia::Asia
+Dubai::the United Arab Emirates::Asia
+Pereira::unknown::unknown
+Kazan::Russia::Europe
+Yangzhou::China::Asia
+Toulon::France::Europe
+Aleppo::Syria::Asia
+La Paz::Bolivia::South America
+Nashville::unknown::unknown
+Zanzibar::Tanzania::Africa
+Asmara::Eritrea::unknown
+Baku::Azerbaijan::Europe
+Tel Aviv::Israel::Asia
+Rotterdam::the Netherlands::unknown
+Louisville::the United States::North America
+Mosul::Syria::Asia
+Gaza::unknown::unknown
+Rizhao::China::Asia
+Semarang::Indonesia::Asia
+Jammu::India::Asia
+Orenburg::Russia::Europe
+Tbilisi::Georgia::Europe
+Auckland::New Zealand::Oceania
+Phnom Penh::Cambodia::Asia
+San Juan::unknown::unknown
+Onitsha::Niger::Africa
+Porto::Portugal::Europe
+Mysore::India::Asia
+Aguascalientes::Mexico::North America
+Oran::Algeria::Africa
+Kanpur::India::Asia
+Suzhou::China::Asia
+Hengyang::China::Asia
+Riyadh::Saudi Arabia::Asia
+Bremen::Germany::Europe
+Addis Ababa::Ethiopia::Africa
+Luanda::Angola::Africa
+Bahawalpur::Pakistan::Asia
+Luoyang::unknown::unknown
+Guatemala City::Guatemala::North America
+Sao Paulo::unknown::unknown
+Akure::Niger::Africa
+Bhubaneswar::India::Asia
+Kingston::unknown::unknown
+Durban::South Africa::Africa
+Quetta::Pakistan::Asia
+Algiers::Algeria::Africa

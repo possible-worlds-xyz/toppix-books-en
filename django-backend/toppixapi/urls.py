@@ -5,13 +5,14 @@
 
 from django.urls import path, include
 from rest_framework import routers
-from .views import BookViewSet,GetBooksByTitle,GetPaginatedBooksByContinent,GetPaginatedBooksByCountry,GetPaginatedBooksByTime,GetPaginatedBooksByAgeRange,GetPaginatedBooksByTopic,GetPaginatedBooksBySetting,GetBooksByMultiple
+from .views import BookViewSet,GetTopics,GetBooksByTitle,GetPaginatedBooksByContinent,GetPaginatedBooksByCountry,GetPaginatedBooksByTime,GetPaginatedBooksByAgeRange,GetPaginatedBooksByTopic,GetPaginatedBooksBySetting,GetBooksByMultiple
 router=routers.DefaultRouter()
 router.register('books',BookViewSet)
 
 urlpatterns = [
    path('',include(router.urls)),
    path('books/titles/<str:title>/', GetBooksByTitle.as_view({'get': 'list'})),
+   path('topics/', GetTopics.as_view({'get': 'list'})),
    path('books/continent/<str:continent>/<int:page>/', GetPaginatedBooksByContinent.as_view({'get': 'list'})),
    path('books/country/<str:country>/<int:page>/', GetPaginatedBooksByCountry.as_view({'get': 'list'})),
    path('books/time/<str:time>/<int:page>/', GetPaginatedBooksByTime.as_view({'get': 'list'})),

@@ -172,11 +172,11 @@ def parse_deps(doc, entity_ids, entities, entity_vectors, vec_words):
             if not(idx in individuals and len(individuals[idx]) > len(x)):
                 individuals[idx] = x
 
-        if token.tag_ in ["NN","NNS"]:
+        if token.tag_ in ["NN","NNS","NNP"]:
             print("                                     >>> ENT",token.text,token.i+1)
             x = token.text
             idx = token.i+1
-            if idx not in individuals:
+            if idx not in individuals and token.head.tag_[:2] != "NN": #We deal with compounds elsewhere
                 individuals[idx] = x
 
         if token.head.tag_ in ["NN","NNS"]:
@@ -301,10 +301,11 @@ if __name__ == "__main__":
     parse = False
     write = True
 
-    out_nes=open(join(parsed_dir,'named.entities.rels.txt'),'w')
-    out_inds=open(join(parsed_dir,'individuals.txt'),'w')
-    out_events=open(join(parsed_dir,'events.txt'),'w')
-    #out_vecs=open(join(parsed_dir,'entity.vecs.txt'),'w')
+    if write:
+        out_nes=open(join(parsed_dir,'named.entities.rels.txt'),'w')
+        out_inds=open(join(parsed_dir,'individuals.txt'),'w')
+        out_events=open(join(parsed_dir,'events.txt'),'w')
+        #out_vecs=open(join(parsed_dir,'entity.vecs.txt'),'w')
 
     f = gzip.open(join(linear_dir,'enwiki_books.gz'),'rt')
     for l in f:

@@ -85,6 +85,7 @@ def mk_book_excerpts(linear_dir,linear_file_zipped):
     out_file = open(book_excerpt_file,'w')
 
     excerpt = ""
+    record = False
     with gzip.open(linear_file_zipped,'rt') as in_file:
         for l in in_file:
             l = l.rstrip('\n')
@@ -95,8 +96,13 @@ def mk_book_excerpts(linear_dir,linear_file_zipped):
             elif "</doc" in l:
                 out_file.write(title+'::'+excerpt+'\n')
                 excerpt = ""
+                record = False
+            elif "##" in l and record and len(excerpt) > 0:
+                record = False
+            elif "## Plot" in l or "## Synopsis" in l:
+                record = True
             else:
-                if len(excerpt.split()) < 200 and l!=title:
+                if len(excerpt.split()) < 200 and record:
                     excerpt+=l
     in_file.close()
     out_file.close()
@@ -533,6 +539,7 @@ if __name__ == "__main__":
     Path(parsed_dir).mkdir(exist_ok=True, parents=True)
     cat_dir = xml_dir.replace('xml','categorisation')
     #linear_file_zipped = mk_linear(xml_dir)
+    linear_file_zipped = "wikipedia/2022-12-02/books/linear/enwiki_books.gz"
 
 
     #mk_book_infoboxes(xml_dir)
@@ -543,6 +550,5 @@ if __name__ == "__main__":
     #ner(xml_dir)
     
     #book_title_file_zipped = mk_book_titles(linear_dir,linear_file_zipped)
-    #book_excerpt_file_zipped = mk_book_excerpts(linear_dir,linear_file_zipped)
-    linear_file_zipped = "wikipedia/2022-12-02/books/linear/enwiki_books.gz"
-    dependency_file_zipped, entity_file_zipped = parse_content(parsed_dir,linear_file_zipped)
+    book_excerpt_file_zipped = mk_book_excerpts(linear_dir,linear_file_zipped)
+    #dependency_file_zipped, entity_file_zipped = parse_content(parsed_dir,linear_file_zipped)

@@ -79,6 +79,7 @@ def get_country(location, known_locations, states, countries, continents, wiki_a
         if wiki_page.exists():
             pos = 500
             summary = wiki_page.summary[:500]
+            print(summary)
             for c in countries:
                 if c in summary and summary.index(c) < pos and summary.index(c) != summary.index(location):
                     country = c

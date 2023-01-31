@@ -44,6 +44,24 @@ class BookSerializer(serializers.ModelSerializer):
         model = Book
         fields = ('id', 'title', 'wiki_url','author', 'genre', 'release_date','snippet')
 
+class BookSerializerSettings(serializers.ModelSerializer):
+    settings = SettingSerializer(many=True)
+    class Meta:
+        model = Book
+        fields = ('id', 'title', 'wiki_url','author', 'genre', 'release_date','settings','snippet')
+
+class BookSerializerTopics(serializers.ModelSerializer):
+    topics = TopicSerializer(many=True)
+    class Meta:
+        model = Book
+        fields = ('id', 'title', 'wiki_url','author', 'genre', 'release_date','topics','snippet')
+
+class BookSerializerCountries(serializers.ModelSerializer):
+    countries = CountrySerializer(many=True)
+    class Meta:
+        model = Book
+        fields = ('id', 'title', 'wiki_url','author', 'genre', 'release_date','countries','snippet')
+
 class FullBookSerializer(serializers.ModelSerializer):
     topics = TopicSerializer(many=True)
     settings = SettingSerializer(many=True)

@@ -4,16 +4,21 @@
 # SPDX-License-Identifier: AGPL-3.0-only
 
 from .models import Book, Topic, Continent, Country, Time, Character, Setting
-from .serializers import BookSerializer, FullBookSerializer
+from .serializers import TopicSerializer, BookSerializer, BookSerializerSettings, BookSerializerTopics, BookSerializerCountries, FullBookSerializer
 from rest_framework import status, viewsets
 from rest_framework.response import Response
 from rest_framework.decorators import action
+
+class GetTopics(viewsets.ViewSet):
+    def list(self, request):
+        topics = Topic.objects.all()
+        serializer = TopicSerializer(topics, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 # Define class to convert all records of the customers table into JSON
 class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
-
 
 class GetBooksByTitle(viewsets.ViewSet):
     def list(self, request, title):
@@ -54,14 +59,14 @@ class GetPaginatedBooksByCountry(viewsets.ViewSet):
         country = Country.objects.get(country=country)
         start_book = (page - 1) * 100
         books = country.books.all().order_by('-release_date')[start_book:start_book + 100]
-        serializer = BookSerializer(books,many=True)
+        serializer = BookSerializerCountries(books,many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 class GetBooksByCountry(viewsets.ViewSet):
     def list(self, request, country):
         country = Country.objects.get(country=country)
         books = country.books
-        serializer = BookSerializer(books,many=True)
+        serializer = BookSerializerCountries(books,many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 class GetPaginatedBooksByTime(viewsets.ViewSet):
@@ -77,7 +82,7 @@ class GetPaginatedBooksByTopic(viewsets.ViewSet):
         topic = Topic.objects.get(topic=topic)
         start_book = (page - 1) * 100
         books = topic.books.all().order_by('-release_date')[start_book:start_book + 100]
-        serializer = BookSerializer(books,many=True)
+        serializer = BookSerializerTopics(books,many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
@@ -86,7 +91,7 @@ class GetPaginatedBooksBySetting(viewsets.ViewSet):
         topic = Setting.objects.get(setting=setting)
         start_book = (page - 1) * 100
         books = topic.books.all().order_by('-release_date')[start_book:start_book + 100]
-        serializer = BookSerializer(books,many=True)
+        serializer = BookSerializerSettings(books,many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 class GetPaginatedBooksByAgeRange(viewsets.ViewSet):

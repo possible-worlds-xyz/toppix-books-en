@@ -1,3 +1,4 @@
+import sys
 import re
 import gzip
 from os.path import join
@@ -97,11 +98,39 @@ def mk_stats_events():
     for i in events_deps.most_common():
         print(i[0], i[1])
 
+def mk_stats_settings():
+    settings = []
+    with gzip.open(join(base_dir,'parsed/enwiki-settings.gz'),'rt') as f:
+        for l in f:
+            l = l.rstrip('\n')
+            if '<doc' not in l and '</doc' not in l:
+                setting,freq,min_pos = l.split('::')
+                if int(freq) == 1 and int(min_pos) < 15: #Only one occurrence of the setting but early on in the description
+                    settings.append(setting)
+                elif int(freq) > 1 and int(min_pos) < 50: #Several occurrences and still reasonably at the beginning
+                    settings.append(setting)
+                else:
+                    continue
+    setting_counts = Counter(settings)
+
+    print("\n## MOST COMMON SETTINGS")
+    for i in setting_counts.most_common():
+        print(i[0], i[1])
+
 
 if __name__ == '__main__':
     base_dir = Path("./current_dir_path.txt").read_text().rstrip('\n')
-    #mk_stats_topics()
-    #mk_stats_locations()
-    #mk_stats_nes()
-    mk_stats_inds()
-    #mk_stats_events()
+    flag = sys.argv[1]
+    
+    if flag == "topics":
+        mk_stats_topics()
+    if flag == "locations":
+        mk_stats_locations()
+    if flag == "nes":
+        mk_stats_nes()
+    if flag == "inds":
+        mk_stats_inds()
+    if flag == "events":
+        mk_stats_events()
+    if flag == "settings":
+        mk_stats_settings()
