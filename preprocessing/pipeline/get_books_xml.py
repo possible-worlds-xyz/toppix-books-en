@@ -10,6 +10,7 @@ import subprocess
 from os import mkdir,remove, unlink
 from os.path import join
 from datetime import date
+from pathlib import Path
 
 def read_latest_wiki_paths():
     with open("./latest_wiki_paths.txt",'r') as f:
@@ -53,7 +54,7 @@ def get_book_xml(filename):
 if __name__ == "__main__":
     today = str(date.today())
     wiki_dir = join("./wikipedia/",today)
-    mkdir(wiki_dir)
+    Path(wiki_dir).mkdir(exist_ok=True, parents=True)
     wiki_paths = read_latest_wiki_paths()
 
     for bz2_file in wiki_paths:
