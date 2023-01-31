@@ -16,24 +16,24 @@ This repo contains two main directories, *preprocessing* and *django-backend*. I
 
 ## Installation
 
-'''
+```
 git clone https://github.com/possible-worlds-xyz/toppix-books-en.git
 ./virtualenv toppix-books-en/
 cd toppix-books-en/
 source bin/activate
 pip install -r requirements.txt
 cp -r preprocessing/pipeline/wikiextractor/ lib/python3.8/site-packages/
-'''
+```
 
 ## Preprocessing
 
 The first thing you'll want to do is get the latest Wikipedia dump, preprocessed to include books only. Head over to your *preprocessing/pipeline* directory and run:
 
-'''
+```
 cd preprocessing/pipeline/
 ./get_latest_wiki_filenames.sh
 python3 get_books_xml.py 
-'''
+```
 
 You will now have a file listing the paths of the latest wiki dump, at *latest_wiki_paths.txt*.
 
