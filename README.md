@@ -22,6 +22,7 @@ git clone https://github.com/possible-worlds-xyz/toppix-books-en.git
 cd toppix-books-en/
 source bin/activate
 pip install -r requirements.txt
+cp -r preprocessing/pipeline/wikiextractor/ lib/python3.8/site-packages/
 '''
 
 ## Preprocessing

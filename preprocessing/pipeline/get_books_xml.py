@@ -53,7 +53,7 @@ def get_book_xml(filename):
 
 if __name__ == "__main__":
     today = str(date.today())
-    wiki_dir = join("./wikipedia/",today)
+    wiki_dir = join("./wikipedia/",today,"xml")
     Path(wiki_dir).mkdir(exist_ok=True, parents=True)
     wiki_paths = read_latest_wiki_paths()
 

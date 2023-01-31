@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-only
 
-
+import sys
 import re
 import gzip
 import glob
@@ -528,27 +528,23 @@ def mk_categories(xml_dir,cat_dir):
 
 
 if __name__ == "__main__":
-    #base_dir = "/home/admin/share/4tera/corpora/wikipedia/2021-12-28/books/"
-    base_dir = "./wikipedia/2022-12-02/books/"
+    base_dir = sys.argv[1]
     xml_dir = join(base_dir,"xml")
     print('XML',xml_dir)
-    Path(xml_dir).mkdir(exist_ok=True, parents=True)
     linear_dir = xml_dir.replace('xml','linear')
     Path(linear_dir).mkdir(exist_ok=True, parents=True)
     parsed_dir = xml_dir.replace('xml','parsed')
     Path(parsed_dir).mkdir(exist_ok=True, parents=True)
     cat_dir = xml_dir.replace('xml','categorisation')
-    #linear_file_zipped = mk_linear(xml_dir)
-    linear_file_zipped = "wikipedia/2022-12-02/books/linear/enwiki_books.gz"
+    linear_file_zipped = mk_linear(xml_dir)
 
+    mk_book_infoboxes(xml_dir)
 
-    #mk_book_infoboxes(xml_dir)
-
-    #mk_categories(xml_dir,cat_dir)
-    #mk_book_locations(xml_dir, cat_dir)
-    #mk_book_times(xml_dir, cat_dir)
+    mk_categories(xml_dir,cat_dir)
+    mk_book_locations(xml_dir, cat_dir)
+    mk_book_times(xml_dir, cat_dir)
     #ner(xml_dir)
     
-    #book_title_file_zipped = mk_book_titles(linear_dir,linear_file_zipped)
+    book_title_file_zipped = mk_book_titles(linear_dir,linear_file_zipped)
     book_excerpt_file_zipped = mk_book_excerpts(linear_dir,linear_file_zipped)
-    #dependency_file_zipped, entity_file_zipped = parse_content(parsed_dir,linear_file_zipped)
+    dependency_file_zipped, entity_file_zipped = parse_content(parsed_dir,linear_file_zipped)
