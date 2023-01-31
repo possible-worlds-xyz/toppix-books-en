@@ -6,4 +6,23 @@ Toppix is a privacy-friendly recommendation engine for books and movies. It prov
 
 ## The repository
 
+This repo contains two main directories, *preprocessing* and *django-backend*. In *preprocessing*, you will find all scripts needed to extract book information from the English Wikipedia. In *django-backend*, there is code to populate a database with the extracted information and set up an API. To find out what the official Toppix API currently looks like, you can try the following queries in your browser:
 
+
+* Title search: [https://possibleworlds.eu.pythonanywhere.com/toppixapi/books/titles/A%20Column%20of%20Fire/](https://possibleworlds.eu.pythonanywhere.com/toppixapi/books/titles/A%20Column%20of%20Fire/)
+* Topic search: [https://possibleworlds.eu.pythonanywhere.com/toppixapi/books/topic/dogs/1/](https://possibleworlds.eu.pythonanywhere.com/toppixapi/books/topic/dogs/1/)
+* Setting search: [https://possibleworlds.eu.pythonanywhere.com/toppixapi/books/country/Japan/1/](https://possibleworlds.eu.pythonanywhere.com/toppixapi/books/country/Japan/1/)
+
+
+## Preprocessing
+
+The first thing you'll want to do is get the latest Wikipedia dump, preprocessed to include books only. Head over to your *preprocessing/pipeline* directory and run:
+
+'''
+./get_latest_wiki_filenames.sh
+python3 get_books_xml.py 
+'''
+
+
+
+## Setting up the API
