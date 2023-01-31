@@ -31,12 +31,12 @@ def read_books(base_dir):
     return books
 
 
-def read_locations(base_dir):
+def read_locations(location_file):
     continents = {}
     countries = {}
     country_names= []
     continent_names= []
-    with open(os.path.join(base_dir,'categorisation/enwiki-book-locations.xml'),'r') as f:
+    with open(location_file,'r') as f:
         for l in f:
             l=l.rstrip('\n')
             if l[:4] == "<doc":
@@ -130,6 +130,7 @@ def populate_locations():
         p.save()
     for country in country_names:
         print("Adding ",country)
+        country = country.replace('the ','') #To cater for the United States, etc
         p = Country.objects.get_or_create(country=country)[0]
         p.save()
 
@@ -158,6 +159,7 @@ def populate_wiki_locations():
         try:
             m = Book.objects.get(title=wiki)
             for country in countries:
+                country = country.replace('the ','') #To cater for the United States, etc
                 c = Country.objects.get(country=country)
                 c.books.add(m)
                 c.save()
@@ -218,8 +220,9 @@ def populate_snippets():
     with gzip.open(os.path.join(base_dir,'linear/enwiki_book_excerpts.gz'),'rt') as f:
         for l in f:
             wiki,snippet = l.rstrip('\n').split("::")
-            snippet = snippet.replace(' ##','\n\n')
-            snippet = snippet.replace(' () ',' ')
+            snippet = snippet.replace('##','\n\n')
+            snippet = snippet.replace('()',' ')
+            snippet = snippet.replace('\"','"')
             snippet+='...'
             print("Adding",wiki,snippet[:150])
             try:
@@ -285,6 +288,7 @@ def populate_basic_info():
                     genre = m.group(1)
 
 def populate_wiki_topics():
+    replacements = {'extraterrestrial life':'aliens'}
     Topic.objects.all().delete()
     with gzip.open(os.path.join(base_dir,'categorisation/enwiki-book-categories.gz'),'rt') as f:
         for l in f:
@@ -294,7 +298,9 @@ def populate_wiki_topics():
             for cat in categories.split(','):
                 if "Novels about" in cat or "Fiction about" in cat:
                     m = re.search(".*about (.*)",cat)
-                    topic = m.group(1).lower().replace(' ','_')
+                    topic = m.group(1).lower().replace('_',' ')
+                    if topic in replacements:
+                        topic = replacements[topic]
                     print(topic)
                     try:
                         print("Adding topic",topic,"to",wiki)
@@ -316,6 +322,8 @@ def populate_wiki_settings():
                 title = m.group(1)
             elif "</doc" in l:
                 for setting in settings:
+                    if setting[0].isupper(): #Ignore named entities
+                        continue
                     try:
                         print("Adding setting",setting,"to",title)
                         t = Setting.objects.get_or_create(setting=setting)[0]
@@ -338,10 +346,13 @@ def populate_wiki_settings():
 def cleanup():
     books = Book.objects.all()
     print(len(books))
+
+    #Clearing books with empty plot snippets
     for book in books:
-        if "novel" not in book.snippet:
-            print("Deleting",book.title)
+       if len(book.snippet) < 20:
+            print("Deleting",book.title,book.snippet)
             book.delete()
+
     print(len(books))
 
 # Start execution here!
@@ -349,22 +360,33 @@ if __name__ == '__main__':
     base_dir = Path("../preprocessing/pipeline/current_dir_path.txt").read_text().rstrip('\n')
     base_dir = os.path.join("../preprocessing/pipeline/",base_dir)
     print("Starting population script...")
-    #books = read_books(base_dir)
-    #print(len(books),"books read...")
-    #populate_books()
-    #wiki_to_continents, wiki_to_countries, continent_names, country_names = read_locations(base_dir)
-    #populate_release_dates()
-    #populate_locations()
-    #populate_wiki_locations()
-    #populate_times()
-    #wiki_to_times = read_times()
-    #populate_wiki_times()
-    #populate_snippets()
-    #cleanup()
+    books = read_books(base_dir)
+    print(len(books),"books read...")
+    populate_books()
+    populate_release_dates()
 
-    #populate_basic_info()
-    #populate_wiki_topics()
+    #Locations
+    locations_from_cats = os.path.join(base_dir,'categorisation/enwiki-book-locations.xml')
+    wiki_to_continents, wiki_to_countries, continent_names, country_names = read_locations(locations_from_cats)
+    populate_locations()
+    populate_wiki_locations()
+    locations_from_parse = os.path.join(base_dir,'parsed/enwiki-book-locations.xml')
+    wiki_to_continents, wiki_to_countries, continent_names, country_names = read_locations(locations_from_parse)
+    populate_locations()
+    populate_wiki_locations()
+
+    #Times
+    populate_times()
+    wiki_to_times = read_times()
+    populate_wiki_times()
+
+    #Snippets
+    populate_snippets()
+    cleanup()
+
+    populate_basic_info()
+    populate_wiki_topics()
     populate_wiki_settings()
     
-    #wiki_chars = read_chars(base_dir)
-    #populate_wiki_chars()
+    wiki_chars = read_chars(base_dir)
+    populate_wiki_chars()
