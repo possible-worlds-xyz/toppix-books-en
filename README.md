@@ -16,6 +16,8 @@ This repo contains two main directories, *preprocessing* and *django-backend*. I
 
 ## Installation
 
+You will need virtualenv installed on your machine.
+
 ```
 git clone https://github.com/possible-worlds-xyz/toppix-books-en.git
 virtualenv toppix-books-en/
@@ -24,6 +26,8 @@ source bin/activate
 pip install -r requirements.txt
 cp -r preprocessing/pipeline/wikiextractor/ lib/python3.8/site-packages/
 ```
+
+For the last command, replace *python3.8* with whichever python version you may be running in your virtualenv.
 
 ## Preprocessing
 
@@ -35,6 +39,12 @@ cd preprocessing/pipeline/
 python3 get_books_xml.py 
 ```
 
-You will now have a file listing the paths of the latest wiki dump, at *latest_wiki_paths.txt*.
+You will now have a file listing the paths of the latest wiki dump, at *latest_wiki_paths.txt* in your pipeline folder. In addition, a newly created directory will be available under *wikipedia/<today' date>*, containing an xml folder. In the xml folder, you will find zipped files of your Wikipedia dump, preprocessed to remove markup and only retain book-related pages.
+
+The last thing to do is to launch the feature extraction on the xml folder. Let us say that the date of your wikipedia folder is 2023-02-01, then you would launch the extraction with:
+
+```
+python3 process_books.py wikipedia/2023-02-01/
+```
 
 ## Setting up the API
