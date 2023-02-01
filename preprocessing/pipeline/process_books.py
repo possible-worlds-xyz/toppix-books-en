@@ -536,6 +536,7 @@ if __name__ == "__main__":
     parsed_dir = xml_dir.replace('xml','parsed')
     Path(parsed_dir).mkdir(exist_ok=True, parents=True)
     cat_dir = xml_dir.replace('xml','categorisation')
+    Path(cat_dir).mkdir(exist_ok=True, parents=True)
     linear_file_zipped = mk_linear(xml_dir)
 
     mk_book_infoboxes(xml_dir)
