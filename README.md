@@ -39,12 +39,23 @@ cd preprocessing/pipeline/
 python3 get_books_xml.py 
 ```
 
-You will now have a file listing the paths of the latest wiki dump, at *latest_wiki_paths.txt* in your pipeline folder. In addition, a newly created directory will be available under *wikipedia/<today' date>*, containing an xml folder. In the xml folder, you will find zipped files of your Wikipedia dump, preprocessed to remove markup and only retain book-related pages.
+You will now have a file listing the paths of the latest wiki dump, at *latest_wiki_paths.txt* in your pipeline folder. In addition, a newly created directory will be available under *wikipedia/<today' date>*, containing an xml folder. In the xml folder, you will find zipped files of your Wikipedia dump, preprocessed to only retain book-related pages.
 
 The last thing to do is to launch the feature extraction on the xml folder. Let us say that the date of your wikipedia folder is 2023-02-01, then you would launch the extraction with:
 
 ```
 python3 process_books.py wikipedia/2023-02-01/
 ```
+
+The result of this step will be a set of additional folders in *wikipedia/2023-02-01/*: 
+
+```
+|categorisation
+|linear
+|parsed
+```
+
+The linear folder contains the text of the Wikipedia documents with markup removed. The categorisation folder contains various types of information, from location and time categories to broad topical features. Finally, the parsed directory contains a dependency-parsed version of the corpus, which can be used for more fine-grained analysis.
+
 
 ## Setting up the API
