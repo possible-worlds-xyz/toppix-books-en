@@ -59,3 +59,23 @@ The linear folder contains the text of the Wikipedia documents with markup remov
 
 
 ## Setting up the API
+
+Now, head over to your *django-backend* folder and set up your API:
+
+```
+python3 manage.py migrate
+python3 manage.py createsuperuser
+python3 populate.py ../../preprocessing/pipeline/wikipedia/2023-02-01/
+```
+
+(Amend the path in the populate command according to the directory path you obtained in the preprocessing step.)
+
+That's it! Now launch your server:
+
+```
+python3 manage.py runserver
+```
+
+You should now be able to navigate your API from your browser, e.g. by visiting
+
+[http://localhost:8000/toppixapi/books/topic/horses/1/](http://localhost:8000/toppixapi/books/topic/horses/1/)

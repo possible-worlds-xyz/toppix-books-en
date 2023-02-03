@@ -370,10 +370,10 @@ if __name__ == '__main__':
     wiki_to_continents, wiki_to_countries, continent_names, country_names = read_locations(locations_from_cats)
     populate_locations()
     populate_wiki_locations()
-    locations_from_parse = os.path.join(base_dir,'parsed/enwiki-book-locations.xml')
-    wiki_to_continents, wiki_to_countries, continent_names, country_names = read_locations(locations_from_parse)
-    populate_locations()
-    populate_wiki_locations()
+    #locations_from_parse = os.path.join(base_dir,'parsed/enwiki-book-locations.xml')
+    #wiki_to_continents, wiki_to_countries, continent_names, country_names = read_locations(locations_from_parse)
+    #populate_locations()
+    #populate_wiki_locations()
 
     #Times
     populate_times()
@@ -386,7 +386,7 @@ if __name__ == '__main__':
 
     populate_basic_info()
     populate_wiki_topics()
-    populate_wiki_settings()
+    #populate_wiki_settings()
     
-    wiki_chars = read_chars(base_dir)
-    populate_wiki_chars()
+    #wiki_chars = read_chars(base_dir)
+    #populate_wiki_chars()
